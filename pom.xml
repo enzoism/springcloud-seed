@@ -10,6 +10,7 @@
         <module>A-EurekaRegister</module>
         <module>B-ServerProvider</module>
         <module>C-ServerConsumer</module>
+        <module>D-ZuulServer</module>
     </modules>
     <packaging>pom</packaging>
 
