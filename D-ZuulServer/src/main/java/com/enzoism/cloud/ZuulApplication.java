@@ -1,15 +1,17 @@
 package com.enzoism.cloud;
 
+import com.enzoism.cloud.filter.AccessFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+@EnableEurekaClient
+@EnableFeignClients
 @EnableZuulProxy
 public class ZuulApplication {
 
@@ -17,9 +19,9 @@ public class ZuulApplication {
         SpringApplication.run(ZuulApplication.class, args);
     }
 
-    @LoadBalanced //使用负载均衡机制
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    public AccessFilter accessFilter() {
+        return new AccessFilter();
     }
+
 }

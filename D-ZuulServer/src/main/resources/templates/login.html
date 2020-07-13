@@ -6,7 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
 <body>
-    <form action="/sso-server/sso/login" method="post">
+    <form action="/sso/login" method="post">
         <input name="url" type="hidden" th:value="${url}"/>
         用户名：<input name="username" type="text"/>
         密码：<input name="password" type="text"/>
